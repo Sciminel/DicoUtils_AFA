@@ -12,7 +12,7 @@ public class DicoIO {
 		int i = 0;
 		System.out.print("Results: ");
 		while(/*str[i].getClass() == String.class*/i < 4)
-			System.out.print(str[i++]);
+			System.out.print(str[i++] + " ");
 		}
 
 	public void menu(){

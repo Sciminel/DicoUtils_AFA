@@ -13,7 +13,7 @@ public class DicoSearch {
 		return test;
 	}
 
-
+// Probleme sur le contains...
 	public static String[] findPart(String word, String[] dico) {
 		boolean test = false;
 		String[] middle = new String[336532];
@@ -48,7 +48,7 @@ public class DicoSearch {
 		}
 	}
 	
-	public static String[] finfEndWword(String word, String[] dico) {
+	public static String[] findEndWord(String word, String[] dico) {
 		boolean test = false;
 		String[] lastLetter = new String[336532];
 		int cmp = 0;
