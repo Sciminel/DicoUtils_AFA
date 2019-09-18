@@ -9,41 +9,16 @@ public class DicoUtils {
 		DicoLoad fileLoad = new DicoLoad();
 		DicoSearch search = new DicoSearch();	
 		String[] dico = fileLoad.loadFile("dictionnaire.txt");
-<<<<<<< HEAD
-		test.menu();
-		int choice = test.readChoice();
-		test.print("What are you looking for ?");
-		String word = test.readWord();
-=======
 		while(running) {
 			test.menu();
 			int choice = test.readChoice();
 			if(choice == 0) break;
-			test.print("What do you search ?");
+			test.print("What are you looking for ?");
 			String word = test.readWord();
->>>>>>> 6dd03dd401d6e381eec1467c35ff33feb74b6528
+
 		
 			switch (choice) {
 			
-<<<<<<< HEAD
-			case 1:
-				if (search.findWord(word, dico)) {
-					test.print("Congratulations");
-				}else {
-					test.print("You loose...");
-				}
-				break;
-			case 2:
-				String[] tab = search.findStartWord(word, dico);
-				test.print("Result(s): ");
-				test.printArr(tab);
-				break;
-		}
-		
-=======
-			//	case 0:
-			//		running = false;
-			//		break;
 				case 1:
 					if (search.findWord(word, dico)) {
 						test.print("Congratulations");
@@ -74,7 +49,7 @@ public class DicoUtils {
 				default:
 					test.print("The number must be between 0 and 5");
 			}
->>>>>>> 6dd03dd401d6e381eec1467c35ff33feb74b6528
+
 		
 		
 		}

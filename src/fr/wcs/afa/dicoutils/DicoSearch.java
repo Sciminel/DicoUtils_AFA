@@ -13,7 +13,6 @@ public class DicoSearch {
 		return test;
 	}
 
-// Probleme sur le contains...
 	public String[] findPart(String word, String[] dico) {
 		boolean test = false;
 		String[] middle = new String[336532];
