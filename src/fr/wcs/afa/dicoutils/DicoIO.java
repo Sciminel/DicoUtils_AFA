@@ -10,9 +10,10 @@ public class DicoIO {
 	
 	public void printArr(String[] str){
 		int i = 0;
-		System.out.print("Results: ");
-		while(str[i] != null)
-			System.out.print(str[i++] + " ");
+		if(str != null)
+			while(str[i] != null)
+				System.out.print(str[i++] + " ");
+		else System.out.print("None.");
 		}
 
 	public void menu(){
