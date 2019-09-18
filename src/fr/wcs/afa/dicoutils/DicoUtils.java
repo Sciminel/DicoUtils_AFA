@@ -10,7 +10,7 @@ public class DicoUtils {
 		String[] dico = fileLoad.loadFile("dictionnaire.txt");
 		test.menu();
 		int choice = test.readChoice();
-		test.print("What do you search ?");
+		test.print("What are you looking for ?");
 		String word = test.readWord();
 		
 		switch (choice) {
@@ -19,7 +19,7 @@ public class DicoUtils {
 				if (search.findWord(word, dico)) {
 					test.print("Congratulations");
 				}else {
-					test.print("You lose...");
+					test.print("You loose...");
 				}
 				break;
 			case 2:
