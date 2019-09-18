@@ -11,7 +11,7 @@ public class DicoIO {
 	public void printArr(String[] str){
 		int i = 0;
 		System.out.print("Results: ");
-		while(/*str[i].getClass() == String.class*/i < 4)
+		while(str[i] != null)
 			System.out.print(str[i++] + " ");
 		}
 
