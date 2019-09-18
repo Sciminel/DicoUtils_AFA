@@ -23,7 +23,7 @@ public class DicoUtils {
 				}
 				break;
 			case 2:
-				String[] tab = search.findPart(word, dico);
+				String[] tab = search.findStartWord(word, dico);
 				test.print("Result(s): ");
 				test.printArr(tab);
 				break;
