@@ -2,7 +2,7 @@ package fr.wcs.afa.dicoutils;
 
 public class DicoSearch {
 	
-	public static boolean findWord(String word, String[] dico) { 
+	public boolean findWord(String word, String[] dico) { 
 		
 		boolean test = false;
 		for (String i : dico) {
@@ -14,7 +14,7 @@ public class DicoSearch {
 	}
 
 // Probleme sur le contains...
-	public static String[] findPart(String word, String[] dico) {
+	public String[] findPart(String word, String[] dico) {
 		boolean test = false;
 		String[] middle = new String[336532];
 		int cpt = 0;
@@ -31,7 +31,7 @@ public class DicoSearch {
 		}
 	}
 	
-	public static String[] findStartWord(String word, String[] dico) {
+	public String[] findStartWord(String word, String[] dico) {
 		boolean test = false;
 		String[] firstLetter = new String[336532];
 		int cpt = 0;
@@ -48,7 +48,7 @@ public class DicoSearch {
 		}
 	}
 	
-	public static String[] findEndWord(String word, String[] dico) {
+	public String[] findEndWord(String word, String[] dico) {
 		boolean test = false;
 		String[] lastLetter = new String[336532];
 		int cmp = 0;
@@ -65,7 +65,7 @@ public class DicoSearch {
 		}
 	}
 	
-	public static String[] findRegex(String word, String[] dico) {
+	public String[] findRegex(String word, String[] dico) {
 		boolean test = false;
 		String[] tab = new String[336532];
 		int cmp = 0;
