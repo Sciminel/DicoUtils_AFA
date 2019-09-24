@@ -12,7 +12,10 @@ public class DicoUtils {
 		while(running) {
 			test.menu();
 			int choice = test.readChoice();
-			if(choice == 0) break;
+			if(choice == 0) {
+				test.print("Good bye");
+				break;
+			}
 			test.print("What are you looking for ?");
 			String word = test.readWord();
 
