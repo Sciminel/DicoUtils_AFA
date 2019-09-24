@@ -1,55 +1,52 @@
 package fr.wcs.BattleShip_AFA;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Boat {
 
-	private List<String> position = new ArrayList<>;
+	private Random rand = new Random();
+	private List<String> position = new ArrayList<>();
 	private boolean active;
-	public List<String> used = new ArrayList<>;
+	public List<String> used = new ArrayList<>();
 
 	public Boat(String str) {
-		//TODO possible erreur pour 1 bateau
-		for(int i = 0; i < str.length(); i+=2){
-			this.position.add(str.substring(i, i+2));
+		// TODO possible erreur pour 1 bateau
+		for (int i = 0; i < str.length(); i += 2) {
+			this.position.add(str.substring(i, i + 2));
 		}
 		this.active = true;
-		}
+	}
 
-	public BoatCPU(){
+	public void BoatCPU() {
 		int ligne;
 		int colonne;
 
 		String posit = "";
-		for(int i = 1; i < 4; i++){
-			switch(i){
+		for (int i = 1; i < 4; i++) {
+			switch (i) {
 			case 1:
-			ligne = this.rand.nextInt(4)+1;
-			colonne = this.rand.nextInt(4)+1;
-			this.position.add()(char)(colonne+65)+(char)(ligne+49));
-			break;
+				ligne = this.rand.nextInt(4) + 1;
+				colonne = this.rand.nextInt(4) + 1;
+				this.position.add(String.valueOf((char) (colonne + 65) + (char) (ligne + 49)));
+				break;
 			case 2:
-
-
-			if(notUsed(posit)){
+				if (isUsed(posit)) {
 
 				}
-			used.add();
+				// used.add();
 
 			}
 		}
 		this.active = true;
 
-		//(char)(colonne+65)+(char)(ligne+49);
-		}
-
-
-	public ArrayList getPosition() {
-		return this.position;
+		// (char)(colonne+65)+(char)(ligne+49);
 	}
 
 	public void setPosition(String str) {
-		for(int i = 0; i < str.length(); i+=2){
-			this.position.add(str.substring(i, i+2));
+		for (int i = 0; i < str.length(); i += 2) {
+			this.position.add(str.substring(i, i + 2));
 		}
 	}
 
@@ -61,7 +58,7 @@ public class Boat {
 		this.active = active;
 	}
 
-	public boolean isUsed(String pos){
-
+	public boolean isUsed(String pos) {
+		return false;
 	}
 }

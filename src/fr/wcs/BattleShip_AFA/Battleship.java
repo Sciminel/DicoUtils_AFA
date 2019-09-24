@@ -2,12 +2,12 @@ package fr.wcs.BattleShip_AFA;
 import java.util.Random;
 
 public class Battleship {
-private Random cpu;
+
 
 	public static void main(String[] args) {
 
 		String target = "";
-		BattleshipIO BIO = new BattleshipIO();
+		BattleshipIO bio = new BattleshipIO();
 		String[][] board = new String[5][5];
 		String[][] boardCPU = new String[5][5];
 
@@ -18,8 +18,8 @@ private Random cpu;
 //		BIO.printBoard(board);
 
 		for (int i = 1; i <= 3; i++) {
-			BIO.print("Entrez les coordonnées du bateau à " + i + " case(s)");
-			target = BIO.readTarget();
+			bio.print("Entrez les coordonnées du bateau à " + i + " case(s)");
+			target = bio.readTarget();
 
 
 			switch (i) {
