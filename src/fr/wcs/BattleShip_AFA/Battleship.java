@@ -1,36 +1,50 @@
 package fr.wcs.BattleShip_AFA;
+import java.util.Random;
 
 public class Battleship {
+private Random cpu;
 
 	public static void main(String[] args) {
-		
+
 		String target = "";
 		BattleshipIO BIO = new BattleshipIO();
 		String[][] board = new String[5][5];
 		String[][] boardCPU = new String[5][5];
-		
+
 		board = fillBoard(board);
 
 //		board[2][4] = "O";
 //		board[1][1] = "X";
 //		BIO.printBoard(board);
-		
+
 		for (int i = 1; i <= 3; i++) {
 			BIO.print("Entrez les coordonnées du bateau à " + i + " case(s)");
 			target = BIO.readTarget();
-		
+
+
 			switch (i) {
-			
+
 			case 1:
-				
+			Boat destroyer = new Boat(target);
+			//Boat destroyerCPU = new Boat
+			break;
+			case 2:
+			Boat cruiser = new Boat(target);
+
+			break;
+			case 2:
+			Boat battleship = new Boat(target);
+
+			break;
 			}
 		}
+
 		
 	}
-	
+
 	public static String[][] fillBoard(String[][] board) {
 		for(int line = 0; line < board.length; line++) {
-			
+
 			for(int column = 0; column < board[0].length; column++) {
 				board[line][column] = ".";
 			}
@@ -41,6 +55,8 @@ public class Battleship {
 	public static String[][] putShit(String[][] board, int longueur) {
 		return board;
 	}
+
+
 
 }
 /*
@@ -68,11 +84,10 @@ Quand tous les bateaux d'un joueur sont coulés on affiche le nom du vainqueur.
 //Le joueur essaye de couler tous les bateaux de son adversaire.
 
 //Plateau de jeu:
-//Le plateau est de 5 par 5 pour chacun des joueurs. L'utilisateur voit son 
-//plateau avec le placement de 
+//Le plateau est de 5 par 5 pour chacun des joueurs. L'utilisateur voit son
+//plateau avec le placement de
 //sa flotte. Il voit également le plateau de son adversaire mais uniquement le choc de ses torpilles.
 
 //Bateaux:
-//Les bateaux on des tailles différentes: 1, 2 et 3 cases. Ils sont détruits quand toutes 
+//Les bateaux on des tailles différentes: 1, 2 et 3 cases. Ils sont détruits quand toutes
 //les parties du bateau on été touchées.
-
