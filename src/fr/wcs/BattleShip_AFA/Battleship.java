@@ -25,7 +25,7 @@ public class Battleship {
 	public static Boat battleshipCPU = new Boat(3);
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 
 		
@@ -34,7 +34,7 @@ public class Battleship {
 		boardCPU = fillBoard(boardCPU);
 
 		for (int i = 1; i <= 3; i++) {
-			bio.print("Entrez les coordonnées du bateau à " + i + " case(s)");
+			bio.print("Enter your coordinates for the boat with " + i + " part(s)");
 			target = bio.readTarget();
 
 			switch (i) {
@@ -63,7 +63,7 @@ public class Battleship {
 		
 		// Placement du 1er bateau 
 		coord = randomCPU(5);
-		boardCPU[coord[0]][coord[1]] = "O";
+		boardCPU[coord[0]][coord[1]] = "D";
 		lineDest = coord[0];
 		
 		// Placement du 2eme bateau
@@ -71,8 +71,8 @@ public class Battleship {
 		while (coord[0] == lineDest) {
 			coord = randomCPU(4);
 		}
-		boardCPU[coord[0]][coord[1]] = "O";
-		boardCPU[coord[0]][coord[1] + 1] = "O";
+		boardCPU[coord[0]][coord[1]] = "C";
+		boardCPU[coord[0]][coord[1] + 1] = "C";
 		lineCruise = coord[0];
 		
 		// Placement du 3eme bateau
@@ -80,9 +80,9 @@ public class Battleship {
 		while (coord[0] == lineDest || coord[0] == lineCruise)  {
 			coord = randomCPU(3);
 		}
-		boardCPU[coord[0]][coord[1]] = "O";
-		boardCPU[coord[0]][coord[1] + 1] = "O";
-		boardCPU[coord[0]][coord[1] + 2] = "O";
+		boardCPU[coord[0]][coord[1]] = "B";
+		boardCPU[coord[0]][coord[1] + 1] = "B";
+		boardCPU[coord[0]][coord[1] + 2] = "B";
 		
 		startGame();
 		
@@ -166,7 +166,7 @@ public class Battleship {
 		return coord;
 	}
 
-	public static void startGame() {
+	public static void startGame() throws InterruptedException {
 		
 		int boatCPU = 6, boat = 6;
 		boolean playing = true;
@@ -179,14 +179,16 @@ public class Battleship {
 			bio.askTarget();
 			target = bio.readTarget();
 			coord = coordonees(target);
-			if (boardCPU[coord[0]][coord[1]] == "O") {
+			if (boardCPU[coord[0]][coord[1]] == "D" ||
+					boardCPU[coord[0]][coord[1]] == "C" || 
+					boardCPU[coord[0]][coord[1]] == "B") {
 				bio.print("BOOM!!!");
 				boatCPU--;
 				boardCPU[coord[0]][coord[1]] = "X";
 				complete[coord[0]][coord[1]] = "X";
 			}
 			else {
-				bio.print("Failed");
+				bio.print("You failed");
 				boardCPU[coord[0]][coord[1]] = "#";
 				complete[coord[0]][coord[1]] = "#";
 				
@@ -196,17 +198,24 @@ public class Battleship {
 				break;
 			}
 			bio.print("CPU playing..");
+			Thread.sleep(1500);
 			bio.printBoard(board);
 			bio.print("__________");
 			bio.printBoard(complete);
 			coord = randomCPU(5);
-			if (board[coord[0]][coord[1]] == "O") {
-				bio.print("BOOM!!!");
+			while (board[coord[0]][coord[1]]== "#" ||
+					board[coord[0]][coord[1]] == "X") {
+				coord = randomCPU(5);
+			}
+			if (board[coord[0]][coord[1]] == "B" ||
+					board[coord[0]][coord[1]] == "C" ||
+					board[coord[0]][coord[1]] == "D") {
+				bio.print("CPU got you...");
 				boat--;
 				board[coord[0]][coord[1]] = "X";
 			}
 			else {
-				bio.print("Failed");
+				bio.print("CPU failed");
 				board[coord[0]][coord[1]] = "#";
 			}
 			if (boat == 0) {
