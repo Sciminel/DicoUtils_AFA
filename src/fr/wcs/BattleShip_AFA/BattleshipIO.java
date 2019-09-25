@@ -26,30 +26,3 @@ public class BattleshipIO {
 		return sc.nextLine();
 		}
 }
-
-
-//	public static void main(String Args[]){
-//
-//		BattleshipIO BS = new BattleshipIO();
-//		String[][] Battle =  {
-//				{"A1", "A2", "A3"},
-//				{"B1", "B2", "B3"},
-//				{"C1", "C2", "C3"}
-//		};
-//		
-//		BS.printBoard(Battle);
-// 		
-//		
-		
-		//		DicoIO test = new DicoIO();
-//		String[] str = {"lol", "lul", "lel", "lal"};
-//		test.print("Yo ma fonction print marche!!!");
-//		test.printArr(str);
-//		test.menu();
-//		test.print("Mot lu:");
-//		System.out.println(test.readWord());
-//		test.print("Choix:");
-//		System.out.println(test.readChoice());
-//		}
-	
-
