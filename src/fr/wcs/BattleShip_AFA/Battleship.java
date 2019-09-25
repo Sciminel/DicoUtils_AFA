@@ -41,21 +41,21 @@ public class Battleship {
 
 			case 1:
 				coord = coordonees(target);
-				board[coord[0]][coord[1]] = "O";   
+				board[coord[0]][coord[1]] = "D";   
 				break;
 			case 2:
 				coord = coordonees(target.substring(0, 2));
-				board[coord[0]][coord[1]] = "O";
+				board[coord[0]][coord[1]] = "C";
 				coord = coordonees(target.substring(2));
-				board[coord[0]][coord[1]] = "O";
+				board[coord[0]][coord[1]] = "C";
 				break;
 			case 3:
 				coord = coordonees(target.substring(0, 2));
-				board[coord[0]][coord[1]] = "O";
+				board[coord[0]][coord[1]] = "B";
 				coord = coordonees(target.substring(2, 4));
-				board[coord[0]][coord[1]] = "O";
+				board[coord[0]][coord[1]] = "B";
 				coord = coordonees(target.substring(4));
-				board[coord[0]][coord[1]] = "O";
+				board[coord[0]][coord[1]] = "B";
 				break;
 			}
 		}
@@ -174,6 +174,7 @@ public class Battleship {
 		complete = fillBoard(complete);
 		while (playing) {
 			bio.printBoard(board);
+			bio.print("__________");
 			bio.printBoard(complete);
 			bio.askTarget();
 			target = bio.readTarget();
@@ -186,6 +187,9 @@ public class Battleship {
 			}
 			else {
 				bio.print("Failed");
+				boardCPU[coord[0]][coord[1]] = "#";
+				complete[coord[0]][coord[1]] = "#";
+				
 			}
 			if (boatCPU == 0) {
 				bio.print("You win!");
@@ -193,8 +197,8 @@ public class Battleship {
 			}
 			bio.print("CPU playing..");
 			bio.printBoard(board);
+			bio.print("__________");
 			bio.printBoard(complete);
-			target = bio.readTarget();
 			coord = randomCPU(5);
 			if (board[coord[0]][coord[1]] == "O") {
 				bio.print("BOOM!!!");
@@ -203,6 +207,7 @@ public class Battleship {
 			}
 			else {
 				bio.print("Failed");
+				board[coord[0]][coord[1]] = "#";
 			}
 			if (boat == 0) {
 				bio.print("You lose!!!");
